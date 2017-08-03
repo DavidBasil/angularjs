@@ -8,21 +8,12 @@
 </head>
 <body>
 			
-	<div ng-app="" ng-init="countries=[
-		{locale:'en-US', name:'United States' },
-		{locale:'en-GB', name:'United Kingdom' },
-		{locale:'en-FR', name:'France'}
-	]">
-		<p>Whats your name?</p>
-		<input type="text" ng-model="name"/>
-		<p>Welcome <span ng-bind="name"></span></p>
-		<h5>List of countries with locale:</h5>
-		<ul>
-			<li ng-repeat="country in countries">
-				{{ 'Country name: ' + country.name + ' | Locale: ' + country.locale}}
-			</li>
-		</ul>
+<div ng-app="" ng-init="quantity=3; cost=20; student={firstName:'David', lastName:'Basil'}; grades=[12, 33, 74, 85]">
+	<p>Hi, {{ student.firstName + " " + student.lastName }}.</p>
+	<p>Your expenses: {{ cost * quantity }}.</p>
+	<p>Your grades: {{ grades[3] }}</p>
 </div>
+
 
 
 <!-- scripts -->
