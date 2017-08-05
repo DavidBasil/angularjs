@@ -18,6 +18,13 @@
 	<p>Your first value is {{first}}</p>
 	<p>Your second value is <span ng-bind="second"></span></p>
 	<p>{{person.fName + " " + person.lName}} you entered {{first+ " and " +second}}</p>
+
+	<ul>
+		<li ng-repeat="capital in capitals">
+			{{'City: ' + capital.city + ', State: ' + capital.state}}
+		</li>
+	</ul>
+
 </div>
 
 <!-- scripts -->
