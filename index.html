@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app2">
+<html ng-app="app3">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -8,32 +8,40 @@
 </head>
 <body>
 			
-	<h4 ng-controller="ctrl1">First random number: {{randomNum1}}</h4>
-	<h4 ng-controller="ctrl1">Second random number: {{randomNum2}}</h4>
+<div id="groceryList" ng-controller="gListCtrl">
+	<h3 class="listTitle">{{groceries.length}} groceries to buy.</h3>	
+	<ol>
+		<li>{{groceries[0].item}}</li>
+	</ol>
+	<ol start="2">
+		<li ng-repeat="grocery in groceries" ng-if="$index > 0">
+			{{grocery.item}} {{$index}}
+		</li>
+	</ol>
 
-	<h4 ng-controller="badCtrl">I'm feeling {{bad}}</h4>
-	<h4 ng-controller="goodCtrl">I'm feeling {{good}}</h4>
+	<table>
+		<tr ng-repeat-start="grocery in groceries">
+			<td>{{grocery.item}}</td>	
+		<tr ng-repeat-end>
+			<td>{{grocery.purchased}}</td>
+		</tr>
+	</table>
 
+</div>
 
 <!-- scripts -->
 <script>
 
-var app2 = angular.module('app2', [])
+var app3 = angular.module('app3', [])
 
-app2.controller('ctrl1', function($scope){
-	$scope.randomNum1 = Math.floor((Math.random()*10)+1)
-	$scope.randomNum2 = Math.floor((Math.random()*10)+1)
-})
-
-app2.controller('badCtrl', function($scope){
-	var badFeelings = ['Disregarded', 'Unimportant', 'Rejected', 'Powerless']
-	$scope.bad = badFeelings[Math.floor((Math.random()*4))]
-})
-
-app2.controller('goodCtrl', function($scope){
-	var goodFeelings = ['Pleasure', 'Awesome', 'Lovable', 'Inner Peace']
-	$scope.good = goodFeelings[Math.floor((Math.random()*4))]
-})
+app3.controller('gListCtrl', function($scope){
+	$scope.groceries = [
+		{item: 'Tomatoes', purchased: false},
+		{item: 'Bread', purchased: false},
+		{item: 'Milk', purchased: false},
+		{item: 'Beef', purchased: false}
+	];
+});
 
 </script>
 </body>
