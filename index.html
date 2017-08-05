@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app1" ng-init="person={fName: 'Derek', lName: 'Banas'};
-										capitals=[{city: 'Montgomery', state: 'Alabama'}, {city:'Juneau', state: 'Alaska'}, {city: 'Phoenix', state:'Arizona'}]">
+<html ng-app="app2">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -9,35 +8,31 @@
 </head>
 <body>
 			
-<div ng-controller="ctrl1">
-	<span>Values:</span>	
-	<input type="text" ng-model="first"/>
-	<input type="text" ng-model="second" />
-	<button ng-click="updateValue()">Sum</button> <br />
-	{{ calculation }}
-	<p>Your first value is {{first}}</p>
-	<p>Your second value is <span ng-bind="second"></span></p>
-	<p>{{person.fName + " " + person.lName}} you entered {{first+ " and " +second}}</p>
+	<h4 ng-controller="ctrl1">First random number: {{randomNum1}}</h4>
+	<h4 ng-controller="ctrl1">Second random number: {{randomNum2}}</h4>
 
-	<ul>
-		<li ng-repeat="capital in capitals">
-			{{'City: ' + capital.city + ', State: ' + capital.state}}
-		</li>
-	</ul>
+	<h4 ng-controller="badCtrl">I'm feeling {{bad}}</h4>
+	<h4 ng-controller="goodCtrl">I'm feeling {{good}}</h4>
 
-</div>
 
 <!-- scripts -->
 <script>
 
-var app1 = angular.module('app1', [])
+var app2 = angular.module('app2', [])
 
-app1.controller('ctrl1', function($scope){
-	$scope.first = 1;
-	$scope.second = 2;
-	$scope.updateValue = function(){
-		$scope.calculation = $scope.first + ' + ' + $scope.second + ' = ' + (+$scope.first + +$scope.second)
-	}
+app2.controller('ctrl1', function($scope){
+	$scope.randomNum1 = Math.floor((Math.random()*10)+1)
+	$scope.randomNum2 = Math.floor((Math.random()*10)+1)
+})
+
+app2.controller('badCtrl', function($scope){
+	var badFeelings = ['Disregarded', 'Unimportant', 'Rejected', 'Powerless']
+	$scope.bad = badFeelings[Math.floor((Math.random()*4))]
+})
+
+app2.controller('goodCtrl', function($scope){
+	var goodFeelings = ['Pleasure', 'Awesome', 'Lovable', 'Inner Peace']
+	$scope.good = goodFeelings[Math.floor((Math.random()*4))]
 })
 
 </script>
