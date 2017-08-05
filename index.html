@@ -28,11 +28,15 @@
 <body>
 			
 <div ng-controller="eventCtrl">
+
 	<p>
-		<input type="checkbox" ng-model="daytimeButton" />Morning
+		<select ng-model="textStyling">
+			<option value="bluetext">Blue Text</option>
+			<option value="boldtext">Bold Text</option>
+		</select>
 	</p>
-	<p ng-hide="!daytimeButton">Good Morning!</p>
-	<p ng-hide="daytimeButton">Good Evening</p>
+
+	<p ng-class="textStyling">Some random text</p>
 
 </div>
 
