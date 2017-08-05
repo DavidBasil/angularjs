@@ -29,14 +29,12 @@
 			
 <div ng-controller="eventCtrl">
 
-	<p>
-		<select ng-model="textStyling">
-			<option value="bluetext">Blue Text</option>
-			<option value="boldtext">Bold Text</option>
-		</select>
-	</p>
-
-	<p ng-class="textStyling">Some random text</p>
+	<table>
+		<tr ng-repeat="item in capitals" ng-class-even="'stripedblue'" ng-class-odd="'stripedbeige'">
+			<td>{{item.City}}</td>	
+			<td>{{item.State}}</td>	
+		</tr>	
+	</table>
 
 </div>
 
