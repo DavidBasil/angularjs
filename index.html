@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app3">
+<html ng-app="app4">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -27,14 +27,21 @@
 </head>
 <body>
 			
+<div ng-controller="eventCtrl">
+		
+	<input type="text" ng-blur="blur = blur + 1" />
+	<h4>Blur Events: {{blur}}</h4>
 
-
-
-
-
+</div>
 
 <!-- scripts -->
 <script>
+
+var app4 = angular.module('app4', [])
+
+app4.controller('eventCtrl', function($scope){
+	$scope.blur = 0;
+})
 
 </script>
 </body>
