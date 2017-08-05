@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app1" ng-init="person={fName: 'Derek', lName: 'Banas'};
+										capitals=[{city: 'Montgomery', state: 'Alabama'}, {city:'Juneau', state: 'Alaska'}, {city: 'Phoenix', state:'Arizona'}]">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -8,16 +9,29 @@
 </head>
 <body>
 			
-<div ng-app="" ng-init="quantity=3; cost=20; student={firstName:'David', lastName:'Basil'}; grades=[12, 33, 74, 85]">
-	<p>Hi, {{ student.firstName + " " + student.lastName }}.</p>
-	<p>Your expenses: {{ cost * quantity }}.</p>
-	<p>Your grades: {{ grades[3] }}</p>
+<div ng-controller="ctrl1">
+	<span>Values:</span>	
+	<input type="text" ng-model="first"/>
+	<input type="text" ng-model="second" />
+	<button ng-click="updateValue()">Sum</button> <br />
+	{{ calculation }}
+	<p>Your first value is {{first}}</p>
+	<p>Your second value is <span ng-bind="second"></span></p>
+	<p>{{person.fName + " " + person.lName}} you entered {{first+ " and " +second}}</p>
 </div>
-
-
 
 <!-- scripts -->
 <script>
+
+var app1 = angular.module('app1', [])
+
+app1.controller('ctrl1', function($scope){
+	$scope.first = 1;
+	$scope.second = 2;
+	$scope.updateValue = function(){
+		$scope.calculation = $scope.first + ' + ' + $scope.second + ' = ' + (+$scope.first + +$scope.second)
+	}
+})
 
 </script>
 </body>
