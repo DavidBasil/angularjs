@@ -8,10 +8,14 @@
 </head>
 <body>
 			
-<div ng-app="" ng-init="cost=2.5;quantity=2">
-	<p>Cost: <input type="number" ng-model="cost" /></p>	
-	<p>Quantity: <input type="number" ng-model="quantity" /></p>
-	<h5>Total: {{cost*quantity}}</h5>
+	<div ng-app="" ng-init="people=[
+		{name:'David', country:'Georgia'},
+		{name:'Chad', country:'USA'},
+		{name:'Stacey', country:'Canada'}
+	]">
+	<ul>
+		<li ng-repeat="person in people">Name: {{person.name}} | Country: {{person.country}}</li>
+	</ul>	
 </div>
 
 
