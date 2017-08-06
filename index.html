@@ -8,19 +8,16 @@
 </head>
 <body>
 			
-<div ng-app="myApp" ng-controller="myCtrl">
-	<p>Name: <input type="text" ng-model="name"/></p>	
-	<h4>You entered: {{name}}</h4>
-</div>
+<form ng-app="" name="myForm">
+	<p>Email: <input type="email" name="myEmail" ng-model="text" /></p>	
+	<span ng-show="myForm.myEmail.$error.email">Not a valid email</span>
+</form>
+
 
 
 <!-- scripts -->
 <script>
 
-var app = angular.module('myApp', [])
-
-app.controller('myCtrl', function($scope){
-})
 
 </script>
 </body>
