@@ -8,15 +8,21 @@
 </head>
 <body>
 			
-
-<div ng-app="myApp" ng-controller="myCtrl">
-	{{firstName + " " + lastName}}	
+<div ng-app="myApp" mydir>
+		
 </div>
+
 
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
+app.directive('mydir', function(){
+	return {
+		template: 'I am a self-made directive.'
+	}
+})
 
 </script>
 </body>
