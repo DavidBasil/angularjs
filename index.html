@@ -8,9 +8,13 @@
 </head>
 <body>
 			
-<form ng-app="" name="myForm">
-	<p>Email: <input type="email" name="myEmail" ng-model="text" /></p>	
-	<span ng-show="myForm.myEmail.$error.email">Not a valid email</span>
+
+<form ng-app="" name="myForm" ng-init="mytext = 'post@myweb.com'">
+	<p>Email: <input type="email" name="myEmail" ng-model="myText" required /></p>	
+	<h3>Status</h3>
+	<p>Valid: {{myForm.myEmail.$valid}}</p>
+	<p>Dirty: {{myForm.myEmail.$dirty}}</p>
+	<p>Touched: {{myForm.myEmail.$touched}}</p>
 </form>
 
 
