@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width" />
   <title></title>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<style type="text/css" media="all">
+input.ng-invalid {
+	background-color: lightblue;
+}
+	</style>
 </head>
 <body>
 			
-
-<form ng-app="" name="myForm" ng-init="mytext = 'post@myweb.com'">
-	<p>Email: <input type="email" name="myEmail" ng-model="myText" required /></p>	
-	<h3>Status</h3>
-	<p>Valid: {{myForm.myEmail.$valid}}</p>
-	<p>Dirty: {{myForm.myEmail.$dirty}}</p>
-	<p>Touched: {{myForm.myEmail.$touched}}</p>
+<form ng-app="" name="myForm">
+	<p>Enter your name: <input type="text" name="myName" ng-model="myText" required /></p>	
 </form>
-
 
 
 <!-- scripts -->
