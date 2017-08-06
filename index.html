@@ -8,21 +8,16 @@
 </head>
 <body>
 			
-<div ng-app="myApp" mydir>
-		
+<div ng-app="" ng-init="cost=2.5;quantity=2">
+	<p>Cost: <input type="number" ng-model="cost" /></p>	
+	<p>Quantity: <input type="number" ng-model="quantity" /></p>
+	<h5>Total: {{cost*quantity}}</h5>
 </div>
-
 
 
 <!-- scripts -->
 <script>
 
-var app = angular.module('myApp', [])
-app.directive('mydir', function(){
-	return {
-		template: 'I am a self-made directive.'
-	}
-})
 
 </script>
 </body>
