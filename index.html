@@ -5,21 +5,24 @@
   <meta name="viewport" content="width=device-width" />
   <title></title>
 	<script src="bower_components/angular/angular.min.js"></script>
-	<style type="text/css" media="all">
-input.ng-invalid {
-	background-color: lightblue;
-}
-	</style>
 </head>
 <body>
 			
-<form ng-app="" name="myForm">
-	<p>Enter your name: <input type="text" name="myName" ng-model="myText" required /></p>	
-</form>
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p ng-click="changeName()">{{firstName}}</p>
+</div>
 
 
 <!-- scripts -->
 <script>
+
+var app = angular.module('myApp', [])
+app.controller('myCtrl', function($scope){
+	$scope.firstName = 'David'
+		$scope.changeName = function(){
+			$scope.firstName = 'Chad'
+		}
+})
 
 
 </script>
