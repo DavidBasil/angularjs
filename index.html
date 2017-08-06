@@ -8,20 +8,20 @@
 </head>
 <body>
 			
-	<div ng-app="" ng-init="people=[
-		{name:'David', country:'Georgia'},
-		{name:'Chad', country:'USA'},
-		{name:'Stacey', country:'Canada'}
-	]">
-	<ul>
-		<li ng-repeat="person in people">Name: {{person.name}} | Country: {{person.country}}</li>
-	</ul>	
+<div ng-app="myApp" ng-controller="myCtrl">
+	<p>Name: <input type="text" ng-model="name" /></p>	
+	<h3>You entered: {{name}}</h3>
 </div>
 
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
+
+app.controller('myCtrl', function($scope){
+	$scope.name = 'David Basil'
+})
 
 </script>
 </body>
