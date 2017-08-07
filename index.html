@@ -9,7 +9,8 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCtrl">
-	<h3>{{theTime}}</h3>	
+	<p>Today's welcome message is:</p>	
+	<h3>{{myWelcome}}</h3>
 </div>
 
 
@@ -19,10 +20,10 @@
 
 var app = angular.module('myApp', [])
 
-app.controller('myCtrl', function($scope, $interval){
-	$scope.theTime = new Date().toLocaleTimeString()
-		$interval(function(){
-			$scope.theTime = new Date().toLocaleTimeString()
+app.controller('myCtrl', function($scope, $http){
+	$http.get('welcome.html')
+		.then(function(response){
+			$scope.myWelcome = response.data
 		})
 })
 
