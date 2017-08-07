@@ -9,8 +9,7 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCtrl">
-	<p>Today's welcome message is:</p>	
-	<h3>{{myWelcome}}</h3>
+	<h3>{{content}}</h3>	
 </div>
 
 
@@ -23,7 +22,9 @@ var app = angular.module('myApp', [])
 app.controller('myCtrl', function($scope, $http){
 	$http.get('welcome.html')
 		.then(function(response){
-			$scope.myWelcome = response.data
+			$scope.content = response.data
+		}, function(response){
+			$scope.content = 'Oops, something went wrong'
 		})
 })
 
