@@ -9,7 +9,7 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCtrl">
-	<h3>{{myHeader}}</h3>	
+	<h3>{{theTime}}</h3>	
 </div>
 
 
@@ -19,13 +19,12 @@
 
 var app = angular.module('myApp', [])
 
-app.controller('myCtrl', function($scope, $timeout){
-	$scope.myHeader = "Hello World"
-	$timeout(function(){
-		$scope.myHeader = "How are you today?"
-	}, 2000)
+app.controller('myCtrl', function($scope, $interval){
+	$scope.theTime = new Date().toLocaleTimeString()
+		$interval(function(){
+			$scope.theTime = new Date().toLocaleTimeString()
+		})
 })
-
 
 </script>
 </body>
