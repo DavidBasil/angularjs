@@ -9,26 +9,19 @@
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- style -->
-	<style type="text/css" media="all">
-table, th, td {
-	border: 2px solid lightblue;
-	border-collapse: collapse;
-	padding: 5px;
-}	
-
-table tr:nth-child(odd){
-	background-color: lightblue;
-}
-table tr:nth-child(even){
-	background-color: #ffffff;
-}
-	</style>
+	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 </head>
 <body>
 
-<div ng-app="">
-	<p ng-hide="true">I am invisible</p>	
-	<p ng-hide="false">I am visible</p>
+<div ng-app="myApp" ng-controller="formCtrl">
+	<form novalidate>
+		<p>First Name:</p>	
+		<input type="text" ng-model="firstName" />
+		<p>Last Name:</p>
+		<input type="text" ng-model="lastName" />
+		<p> <button ng-click="reset()">RESET</button></p>
+	</form>	
+	<h4 ng-show="firstName">Hello {{firstName + " " + lastName}}</h4>
 </div>
 
 
@@ -36,8 +29,14 @@ table tr:nth-child(even){
 <!-- scripts -->
 <script>
 
-var app = angular.module('myApp', ['ngAnimate'])
+var app = angular.module('myApp', [])
 
+app.controller('formCtrl', function($scope){
+	$scope.reset = function(form){
+		$scope.firstName = ''
+		$scope.lastName = ''
+	}
+})
 
 
 </script>
