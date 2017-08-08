@@ -4,8 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title></title>
+	<!-- angular scripts -->
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- style -->
 	<style type="text/css" media="all">
 table, th, td {
 	border: 2px solid lightblue;
@@ -19,21 +22,26 @@ table tr:nth-child(odd){
 table tr:nth-child(even){
 	background-color: #ffffff;
 }
-.ng-hide {
-  transition:0.5s linear all;
-  opacity:0;
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
+.fadeIn {
 }
 
 	</style>
 </head>
 <body>
 
-
+<!-- angular app -->
 <div ng-app="myApp" ng-controller="myCtrl">
-	<h3 ng-hide="selectedCar">Please select a car</h3>
-	<h3 ng-show="selectedCar">Your cars is {{selectedCar}}</h3>
-	<select ng-model="selectedCar" ng-options="x for (x, y) in cars" ng-change="showEl()">
-	</select>
+	<table class="fadeIn">
+		<tr ng-repeat="x in names">
+			<td>{{x.Name}}</td>	
+			<td>{{x.Country}}</td>
+		</tr>
+	</table>	
 </div>
 
 
@@ -42,13 +50,15 @@ table tr:nth-child(even){
 
 var app = angular.module('myApp', ['ngAnimate'])
 
-app.controller('myCtrl', function($scope){
-	$scope.cars = {
-		car01: 'Ford',
-		car02: 'Fiat',
-		car03: 'Volvo'
-	}
+app.controller('myCtrl', function($scope, $http, $timeout){
+	$timeout(function(){
+	$http.get('customers.php')	
+		.then(function(response){
+			$scope.names = response.data.records
+		})
+	}, 1000)
 })
+
 
 </script>
 </body>
