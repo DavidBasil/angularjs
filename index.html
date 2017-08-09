@@ -12,17 +12,24 @@
 	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 </head>
-<body ng-app="">
+<body>
 
-<div ng-include="'header.html'">
-	
+<div ng-app="myApp">
+	<div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
 </div>
 
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
 
+//config
+app.config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'https://tryit.w3schools.com/**'
+  ]);
+});
 
 </script>
 </body>
