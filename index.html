@@ -10,27 +10,44 @@
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- style -->
 	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
-	<style type="text/css" media="all">
-form.ng-pristine {
-	background: lightblue;
-}
-form.ng-dirty {
-	background: pink;
-}
-	</style>
 </head>
 <body>
 
-<div ng-app="">
-	<form action="" method="post" name="myForm">
-		<input type="text" name="myInput" ng-model="myInput" />	
-	</form>
-</div>
+<h2>Validation Example</h2>
+
+<form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+
+	<p>Username:<br>
+		<input type="text" name="user" ng-model="user" required/>
+		<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+			<span ng-show="myForm.user.$error.required">Username is required.</span>
+		</span>
+	</p> 
+
+	<p>Email:<br>
+		<input type="email" name="email" ng-model="email" required/>
+		<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+			<span ng-show="myForm.email.$error.email">Invalid email address</span>
+		</span>
+	</p>
+
+	<p>
+		<input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.email.$dirty && myForm.email.$invalid"/>
+	</p>
+
+</form>
+
 
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
+
+app.controller('validateCtrl', function($scope){
+	$scope.user = 'David Basil'
+	$scope.email = 'info@basildavid.com'
+})
 
 </script>
 </body>
