@@ -23,26 +23,49 @@
 
 <!-- scripts -->
 <script>
-
+// APP MODULE
 var app = angular.module('myApp', ['ngRoute'])
 
+// CONTROLLERS
+// main
+app.controller('mainCtrl', function($scope){
+	$scope.msg = 'Welcome to my App'
+})
+// blue
+app.controller('blueCtrl', function($scope){
+	$scope.color = 'blue'
+})
+// red
+app.controller('redCtrl', function($scope){
+	$scope.color = 'red'
+})
+// green
+app.controller('greenCtrl', function($scope){
+	$scope.color = 'green'
+})
+
+// APP CONFIG
 app.config(function($routeProvider, $locationProvider){
 	$routeProvider
 	// main route
 	.when('/', {
-		templateUrl: 'main.html'
+		templateUrl: 'main.html',
+		controller: 'mainCtrl'
 	})
 	// blue route
 	.when('/blue', {
-		templateUrl: 'blue.html'
+		templateUrl: 'blue.html',
+		controller: 'blueCtrl'
 	})
 	// red route
 	.when('/red', {
-		templateUrl: 'red.html'
+		templateUrl: 'red.html',
+		controller: 'redCtrl'
 	})
 	// green route
 	.when('/green', {
-		templateUrl: 'green.html'
+		templateUrl: 'green.html',
+		controller: 'greenCtrl'
 	})
 	// make urls pretty
 	$locationProvider.html5Mode(true)
