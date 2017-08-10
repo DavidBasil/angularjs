@@ -17,20 +17,15 @@
 </head>
 <body>
 
-<div ng-app="myApp">
-	<my-dir></my-dir>	
-</div>
+<form ng-app name="myForm">
+	<p>Email:</p>	
+	<input type="email" name="email" ng-model="email"/>
+	<span ng-show="myForm.email.$error.email">Not a valid email address</span>
+</form>
+
 
 <!-- scripts -->
 <script>
-
-var app = angular.module('myApp', [])
-
-app.directive("myDir", function(){
-	return {
-		template: ' <h3>Hi there from custom dir</h3>'
-	}
-})
 
 </script>
 </body>
