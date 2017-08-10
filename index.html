@@ -17,20 +17,20 @@
 </head>
 <body>
 
-	<div ng-app ng-init="names=[
-		{name:'David', country:'Georgia'},
-		{name:'Chad', country:'USA'},
-		{name:'Jane', country:'Russia'}
-	]">
-	<ul>
-		<li ng-repeat="x in names">{{x.name + " | " + x.country}}</li>
-	</ul>	
+<div ng-app="myApp">
+	<my-dir></my-dir>	
 </div>
-
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
+
+app.directive("myDir", function(){
+	return {
+		template: ' <h3>Hi there from custom dir</h3>'
+	}
+})
 
 </script>
 </body>
