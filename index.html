@@ -67,6 +67,9 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl: 'green.html',
 		controller: 'greenCtrl'
 	})
+	.otherwise({
+		template: '<h2>Oops, you found an empty page</h2>'
+	})
 	// make urls pretty
 	$locationProvider.html5Mode(true)
 })
