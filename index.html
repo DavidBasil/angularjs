@@ -12,20 +12,27 @@
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<!-- styles -->
 	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/> -->
 	<base href="/" />
 </head>
 <body>
 
-<div ng-app="" ng-init="firstName='David'">
-	<p>My name is <span ng-bind='firstName'></span></p>
-</div>
-
-
+	
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<p>First Name: <input type="text" ng-model="firstName"/></p>
+		<p>Last Name: <input type="text" ng-model="lastName" /></p>
+		<p>Full name: {{firstName + " " + lastName}}</p>
+	</div>
 
 <!-- scripts -->
 <script>
 
+var app = angular.module('myApp', [])
+
+app.controller('myCtrl', function($scope){
+	$scope.firstName = 'David'
+	$scope.lastName = 'Basil'
+})
 
 </script>
 
