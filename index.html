@@ -15,64 +15,17 @@
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 	<base href="/" />
 </head>
-<body ng-app="myApp">
+<body>
 
-	<div ng-include="'nav.html'"></div>
-	<div ng-view></div>
+<div ng-app="" ng-init="firstName='David'">
+	<p>My name is <span ng-bind='firstName'></span></p>
+</div>
+
 
 
 <!-- scripts -->
 <script>
-// APP MODULE
-var app = angular.module('myApp', ['ngRoute'])
 
-// CONTROLLERS
-// main
-app.controller('mainCtrl', function($scope){
-	$scope.msg = 'Welcome to my App'
-})
-// blue
-app.controller('blueCtrl', function($scope){
-	$scope.color = 'blue'
-})
-// red
-app.controller('redCtrl', function($scope){
-	$scope.color = 'red'
-})
-// green
-app.controller('greenCtrl', function($scope){
-	$scope.color = 'green'
-})
-
-// APP CONFIG
-app.config(function($routeProvider, $locationProvider){
-	$routeProvider
-	// main route
-	.when('/', {
-		templateUrl: 'main.html',
-		controller: 'mainCtrl'
-	})
-	// blue route
-	.when('/blue', {
-		templateUrl: 'blue.html',
-		controller: 'blueCtrl'
-	})
-	// red route
-	.when('/red', {
-		templateUrl: 'red.html',
-		controller: 'redCtrl'
-	})
-	// green route
-	.when('/green', {
-		templateUrl: 'green.html',
-		controller: 'greenCtrl'
-	})
-	.otherwise({
-		template: '<h2>Oops, you found an empty page</h2>'
-	})
-	// make urls pretty
-	$locationProvider.html5Mode(true)
-})
 
 </script>
 
