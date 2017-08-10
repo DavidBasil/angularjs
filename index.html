@@ -6,31 +6,51 @@
   <title></title>
 	<!-- angular scripts -->
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<!-- jquery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<!-- style -->
+	<!-- styles -->
 	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 </head>
-<body>
+<body ng-app="myApp">
 
-<div ng-app="myApp">
-	<div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+<p>
+	<a href="#/!">Main</a>
+	<a href="#!red">Red</a>
+	<a href="#!green">Green</a>
+	<a href="#!blue">Blue</a>
+</p>
+
+<div ng-view>
+	
 </div>
 
 
-<!-- scripts -->
 <script>
 
-var app = angular.module('myApp', [])
+var app = angular.module('myApp', ['ngRoute'])
 
-//config
-app.config(function($sceDelegateProvider) {
-  $sceDelegateProvider.resourceUrlWhitelist([
-    'https://tryit.w3schools.com/**'
-  ]);
-});
+//routes
+app.config(function($routeProvider){
+	$routeProvider
+	.when('/', {
+		templateUrl: 'main.html'
+	})
+	.when('/red', {
+		templateUrl: 'red.html'
+	})
+	.when('/green', {
+		templateUrl: 'green.html'
+	})
+	.when('/blue', {
+		templateUrl: 'blue.html'
+	})
+})
+
 
 </script>
+
 </body>
 </html>
