@@ -17,16 +17,14 @@
 </head>
 <body>
 
-	<div ng-app ng-init="points=[1, 15, 19, 2, 40]">
-		<p>My third result is {{points[2]}}.</p>	
-	</div>
+<div ng-app="myApp" ng-controller="myCtrl">
+	{{firstName + " " + lastName}}
+</div>
 
 
 <!-- scripts -->
-<script>
-
-
-</script>
+<script src="myApp.js"></script>
+<script src="myCtrl.js"></script>
 
 </body>
 </html>
