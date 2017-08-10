@@ -17,22 +17,14 @@
 </head>
 <body>
 
-	
-	<div ng-app="myApp" ng-controller="myCtrl">
-		<p>First Name: <input type="text" ng-model="firstName"/></p>
-		<p>Last Name: <input type="text" ng-model="lastName" /></p>
-		<p>Full name: {{firstName + " " + lastName}}</p>
+	<div ng-app ng-init="points=[1, 15, 19, 2, 40]">
+		<p>My third result is {{points[2]}}.</p>	
 	</div>
+
 
 <!-- scripts -->
 <script>
 
-var app = angular.module('myApp', [])
-
-app.controller('myCtrl', function($scope){
-	$scope.firstName = 'David'
-	$scope.lastName = 'Basil'
-})
 
 </script>
 
