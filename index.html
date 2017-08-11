@@ -4,22 +4,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title></title>
+	<!-- styles -->
+	<!-- <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/> -->
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 	<!-- angular scripts -->
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="bower_components/angular-material/angular-material.min.js"></script>
 	<!-- jquery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<!-- styles -->
-	<link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/>
-	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/> -->
 	<base href="/" />
 </head>
 <body>
 
 
+
+
 <!-- scripts -->
 <script>
+
+function GuessTheNumberController($scope){
+	$scope.verifyGuess = function(){
+		$scope.deviation = $scope.original - $scope.guess
+		$scope.noOfTries = $scope.noOfTries + 1
+	}
+	$scope.initializeGame = function(){
+		$scope.noOfTries = 0
+		$scope.original = Math.floor((Math.random() * 1000) + 1)
+		$scope.guess = null
+		$scope.deviation = null
+	}
+	$scope.initializeGame()
+}
 
 </script>
 </body>
