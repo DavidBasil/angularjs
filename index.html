@@ -17,28 +17,9 @@
 </head>
 <body>
 
-<div ng-app="myApp" ng-controller="myCtrl">
-	<p>First Name:</p>	
-	<input type="text" ng-model="person.firstName" />
-	<p>Last Name:</p>
-	<input type="text" ng-model="person.lastName" />
-	<h3>{{fullName()}}</h3>
-</div>
 
 <!-- scripts -->
 <script>
-
-var app = angular.module('myApp', [])
-
-app.controller('myCtrl', function($scope){
-	$scope.person = {
-		firstName:"David",
-		lastName:"Basil"
-	};
-	$scope.fullName = function(){
-		return $scope.person.firstName + " " + $scope.person.lastName
-	}
-})
 
 </script>
 </body>
