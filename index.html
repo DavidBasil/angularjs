@@ -17,27 +17,32 @@
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 	<base href="/" />
 </head>
-<body>
+<body ng-app="myApp" layout="column">
 
+<md-toolbar>
+	<h1>Angular Material Starter</h1>
+</md-toolbar>
 
+<div class="container" layout="row" flex>
+	<md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+		<md-list>
+			<md-list-item>
+				<md-button>
+					<md-icon>
+				</md-button>
+			</md-list-item>
+		</md-list>
+	</md-sidenav>
+	<md-content id="content" flex>
+		Content
+	</md-content>
+</div>
 
 
 <!-- scripts -->
 <script>
 
-function GuessTheNumberController($scope){
-	$scope.verifyGuess = function(){
-		$scope.deviation = $scope.original - $scope.guess
-		$scope.noOfTries = $scope.noOfTries + 1
-	}
-	$scope.initializeGame = function(){
-		$scope.noOfTries = 0
-		$scope.original = Math.floor((Math.random() * 1000) + 1)
-		$scope.guess = null
-		$scope.deviation = null
-	}
-	$scope.initializeGame()
-}
+var app = angular.module('myApp', ['ngMaterial'])
 
 </script>
 </body>
