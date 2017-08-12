@@ -1,5 +1,6 @@
 var app = angular.module('myApp', [])
 
+// grocery list controller
 app.controller('gListCtrl', function($scope){
 	// list of groceries
 	$scope.groceries = [
@@ -18,6 +19,31 @@ app.controller('gListCtrl', function($scope){
 			$scope.missingNewItemError = ""
 		} else {
 			$scope.missingNewItemError = "Please enter a new item"
+		}
+	}
+})
+
+// user controller
+app.controller('userCtrl', function($scope){
+	$scope.user = [{
+		fName: 'David',
+		lName: 'Basil',
+		subscribe: 'Subscribe',
+		delivery: 'Email'
+	}]
+	// save user function
+	$scope.saveUser = function(userInfo){
+		if($scope.userForm.$valid){
+			$scope.user.push({
+				fName: userInfo.fName,
+				lName: userInfo.lName,
+				street: userInfo.street,
+				subscribe: userInfo.subscribe,
+				delivery: userInfo.delivery
+			})
+			console.log("User Saved")
+		} else {
+			console.log("Error: could not save user")
 		}
 	}
 })

@@ -71,18 +71,18 @@
 		<label>Street:</label>
 		<input type="text" name="street" ng-model="userInfo.street" ng-required="true" ng-minlength="6"/>
 		<span class="error-message" ng-show="userForm.street.$dirty && userForm.street.$invalid">Must enter a number, street and street type.</span>
+		<br /><br />
 		<!-- subscribe -->
 		<label>Subsribe:</label>
 		<input type="text" name="subscribe" ng-model="userInfo.subscribe" ng-true-value="'Subscribe'" ng-false-value="'Don\'t subscribe'"/>
-		<br />
-		<br />
+		<br /><br />
 		<!-- delivery method -->
 		<label>Delivery Method:</label>
 		<select name="delivery" ng-model="userInfo.delivery" ng-required="true">
 			<option value="Email">Email</option>
 			<option value="Mail">Mail</option>
 		</select>
-		<br /> <br />
+		<br /><br />
 		<!-- submit button -->
 		<input type="submit" value="Save" ng-disabled="userForm.$invalid"/>
 		<ul>
