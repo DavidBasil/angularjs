@@ -6,7 +6,7 @@
   <title></title>
 	<!-- styles -->
 	<!-- <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/> -->
-	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+	<!-- <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"> -->
 	<!-- angular scripts -->
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
@@ -57,7 +57,7 @@
 	<form name="userForm" ng-submit="saveUser(userInfo)">
 		<!-- first name -->	
 		<label for="">First Name:</label>	
-		<input type="text" name="fName" ng-model="userInfo.fName" ng-required="true" ngMinlength="2" />
+		<input type="text" name="fName" ng-model="userInfo.fName" ng-required="true" ng-minlength="2" />
 		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.required">Must enter a first name.</span>
 		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.minLength">Must be a minimum of 2 characters.</span>
 		<br /><br />
@@ -65,7 +65,8 @@
 		<label>Last Name:</label>	
 		<input type="text" name="lName" ng-model="userInfo.lName" ng-required="true" ng-minlength="2" />
 		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.required">Must enter a last name.</span>
-		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.minLength">Must be a minimum of 2 characters.</span>
+		<!-- todo: minlength error message doesn't show up -->
+		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.minlength">Must be a minimum of 2 characters.</span>
 		<br /><br />
 		<!-- street -->
 		<label>Street:</label>
@@ -74,7 +75,7 @@
 		<br /><br />
 		<!-- subscribe -->
 		<label>Subsribe:</label>
-		<input type="text" name="subscribe" ng-model="userInfo.subscribe" ng-true-value="'Subscribe'" ng-false-value="'Don\'t subscribe'"/>
+		<input type="checkbox" name="subscribe" ng-model="userInfo.subscribe" ng-true-value="'Subscribe'" ng-false-value="'Don\'t subscribe'"/>
 		<br /><br />
 		<!-- delivery method -->
 		<label>Delivery Method:</label>
