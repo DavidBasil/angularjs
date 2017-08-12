@@ -55,8 +55,40 @@
 <div ng-controller="userCtrl">
 	
 	<form name="userForm" ng-submit="saveUser(userInfo)">
-		
-	</form>
+		<!-- first name -->	
+		<label for="">First Name:</label>	
+		<input type="text" name="fName" ng-model="userInfo.fName" ng-required="true" ngMinlength="2" />
+		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.required">Must enter a first name.</span>
+		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.minLength">Must be a minimum of 2 characters.</span>
+		<br /><br />
+		<!-- last name -->
+		<label>Last Name:</label>	
+		<input type="text" name="lName" ng-model="userInfo.lName" ng-required="true" ng-minlength="2" />
+		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.required">Must enter a last name.</span>
+		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.minLength">Must be a minimum of 2 characters.</span>
+		<br /><br />
+		<!-- street -->
+		<label>Street:</label>
+		<input type="text" name="street" ng-model="userInfo.street" ng-required="true" ng-minlength="6"/>
+		<span class="error-message" ng-show="userForm.street.$dirty && userForm.street.$invalid">Must enter a number, street and street type.</span>
+		<!-- subscribe -->
+		<label>Subsribe:</label>
+		<input type="text" name="subscribe" ng-model="userInfo.subscribe" ng-true-value="'Subscribe'" ng-false-value="'Don\'t subscribe'"/>
+		<br />
+		<br />
+		<!-- delivery method -->
+		<label>Delivery Method:</label>
+		<select name="delivery" ng-model="userInfo.delivery" ng-required="true">
+			<option value="Email">Email</option>
+			<option value="Mail">Mail</option>
+		</select>
+		<br /> <br />
+		<!-- submit button -->
+		<input type="submit" value="Save" ng-disabled="userForm.$invalid"/>
+		<ul>
+			<li ng-repeat="item in user">{{'User: ' + item.fName + " " + item.lName + " " + item.street + " " + item.subscribe + " " + item.delivery}}</li>
+		</ul>
+ 	</form>
 
 </div> <!-- end of user controller -->
 
