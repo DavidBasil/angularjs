@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Angello">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -8,93 +8,32 @@
 	<!-- <link rel="stylesheet" href="bower_components/animate.css/animate.min.css"/> -->
 	<!-- <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"> -->
 	<!-- angular scripts -->
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 	<script src="bower_components/angular/angular.min.js"></script>
-	<script src="bower_components/angular-route/angular-route.min.js"></script>
-	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+	<!-- <script src="bower_components/angular-route/angular-route.min.js"></script> -->
+	<!-- <script src="bower_components/angular-animate/angular-animate.min.js"></script> -->
 	<!-- <script src="bower_components/angular-aria/angular-aria.min.js"></script> -->
 	<!-- <script src="bower_components/angular-material/angular-material.min.js"></script> -->
 	<!-- jquery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-	<style type="text/css" media="all">
-		input.ng-dirty.ng-invalid {
-			border-color: red;	
-		}	
-	</style>
 </head>
-<body ng-app="myApp">
-<!-- grocery list controller -->
-<div ng-controller="gListCtrl">
-	<h3>Grocery List</h3>	
+<body>
 
-	<table>
-		<thead>
-			<tr>
-				<th>Item</th>
-				<th>Purchased</th>
-			</tr>
-			<tr ng-repeat="grocery in groceries">
-				<td>{{grocery.item}}</td>
-				<td>
-					<input type="checkbox" ng-model="grocery.purchased" />
-				</td>
-			</tr>
-		</thead>
-	</table>
-
-	<label>New Item:
-		<input type="text" ng-model="newItem"/>
-	</label>
-
-	<button ng-click="addItem(newItem)">Add item</button>
-
-	<h4>{{missingNewItemError}}</h4>
-	
-</div> <!-- end of grocery list controller -->
-
-<!-- user controller -->
-<div ng-controller="userCtrl">
-	
-	<form name="userForm" ng-submit="saveUser(userInfo)">
-		<!-- first name -->	
-		<label for="">First Name:</label>	
-		<input type="text" name="fName" ng-model="userInfo.fName" ng-required="true" ng-minlength="2" />
-		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.required">Must enter a first name.</span>
-		<span class="error-message" ng-show="userForm.fName.$dirty && userForm.fName.$error.minLength">Must be a minimum of 2 characters.</span>
-		<br /><br />
-		<!-- last name -->
-		<label>Last Name:</label>	
-		<input type="text" name="lName" ng-model="userInfo.lName" ng-required="true" ng-minlength="2" />
-		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.required">Must enter a last name.</span>
-		<!-- todo: minlength error message doesn't show up -->
-		<span class="error-message" ng-show="userForm.lName.$dirty && userForm.lName.$error.minlength">Must be a minimum of 2 characters.</span>
-		<br /><br />
-		<!-- street -->
-		<label>Street:</label>
-		<input type="text" name="street" ng-model="userInfo.street" ng-required="true" ng-minlength="6"/>
-		<span class="error-message" ng-show="userForm.street.$dirty && userForm.street.$invalid">Must enter a number, street and street type.</span>
-		<br /><br />
-		<!-- subscribe -->
-		<label>Subsribe:</label>
-		<input type="checkbox" name="subscribe" ng-model="userInfo.subscribe" ng-true-value="'Subscribe'" ng-false-value="'Don\'t subscribe'"/>
-		<br /><br />
-		<!-- delivery method -->
-		<label>Delivery Method:</label>
-		<select name="delivery" ng-model="userInfo.delivery" ng-required="true">
-			<option value="Email">Email</option>
-			<option value="Mail">Mail</option>
-		</select>
-		<br /><br />
-		<!-- submit button -->
-		<input type="submit" value="Save" ng-disabled="userForm.$invalid"/>
-		<ul>
-			<li ng-repeat="item in user">{{'User: ' + item.fName + " " + item.lName + " " + item.street + " " + item.subscribe + " " + item.delivery}}</li>
-		</ul>
- 	</form>
-
-</div> <!-- end of user controller -->
+<div ng-controller="MainCtrl as main">
+	<div class="col-md-4">
+		<h2>Stories</h2>	
+		<div class="callout" ng-repeat="story in main.stories" ng-click="main.setCurrentStory(story)">
+			<h4>{{story.title}}</h4>	
+			<p>{{story.description}}</p>
+		</div>
+		<button class="btn btn-primary" ng-click="main.createStory()">
+			<span class="glyphicon glyphicon-plus"> Create story</span>
+		</button>
+	</div>		
+</div>
 
 
 <!-- scripts -->
-<script src="grocery.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
