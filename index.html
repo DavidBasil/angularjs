@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
@@ -17,26 +17,12 @@
 	<!-- jquery -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 </head>
-<body ng-app="app">
+<body>
 
-<div class="container" ng-controller="GuessTheNumberController">
-	<h2>Guess the number</h2>
-	<p class="well lead">Guess the computer generated random number between 1 and 1000.</p>
-	<label>Your guess: </label>
-	<input type="number" ng-model="guess" />
-	<button class="btn btn-primary btn-sm" ng-click="verifyGuess()">Verify</button>
-	<button class="btn btn-warning btn-sm" ng-click="initializeGame()">Restart</button>
-	<p>
-		<p ng-show="deviation<0" class="alert alert-warning">Your guess is higher</p>
-		<p ng-show="deviation>0" class="alert alert-warning">Your guess is lower</p>
-		<p ng-show="deviation===0" class="alert alert-success">Yes that's it</p>
-	</p>
-	<p class="text-info">No of guesses: <span class="badge">{{noOfTries}}</span></p>
-</div>
-
+	<p>3 + 3 = {{3+3}}</p>
 
 
 <!-- scripts -->
-<script src="app.js"></script>
+<script></script>
 </body>
 </html>
