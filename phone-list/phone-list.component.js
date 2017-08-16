@@ -6,16 +6,20 @@ angular.module('phoneList').component('phoneList', {
 		this.phones = [
 			{
 				name: 'Nexus S',
-				snippet: 'Fast just got faster with Nexus S.'
+				snippet: 'Fast just got faster with Nexus S.',
+				age: 1
 			},
 			{
 				name: 'Nexus S',
-				snippet: 'The Next, Next Generation tablet.'
+				snippet: 'The Next, Next Generation tablet.',
+				age: 2
 			},
 			{
 				name: 'MOTOROLA XOOM',
-				snippet: 'The next, next generation tablet.'
+				snippet: 'The next, next generation tablet.',
+				age: 3
 			}
 		]
+		this.orderProp = 'age'
 	}
 })
