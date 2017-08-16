@@ -1,1 +1,1 @@
-angular.module('phonecatApp', ['ngRoute','phoneList'])
+angular.module('phonecatApp', ['ngRoute','phoneList', 'phoneDetail'])
