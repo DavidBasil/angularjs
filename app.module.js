@@ -1,1 +1,1 @@
-angular.module('phonecatApp', ['ngRoute', 'core', 'phoneList', 'phoneDetail', ])
+angular.module('phonecatApp', ['ngAnimate', 'ngRoute', 'core', 'phoneList', 'phoneDetail'])
