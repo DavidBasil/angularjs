@@ -18,29 +18,34 @@
 	<script src="invoice3.js"></script>
 	<script src="finance3.js"></script>
 </head>
-<body ng-app="myApp">
+<body>
 
-<div ng-controller="SpicyController">
-	<input type="text" ng-model="customSpice"	/>
-	<button ng-click="chiliSpicy()">Chili</button>
-	<button ng-click="jalapenoSpicy()">Jalapeno</button>
-	<button ng-click=spicy(customSpice)>Custom Spice</button>
-	<p>The food is {{spice}} spicy!</p>
+<div id="simple" ng-controller="MyController">
+	<p>Let's try simple notify service, injected into the contorller </p>	
+	<input ng-init="message='test'" ng-model="message" />
+	<button ng-click="callNotify(message)">Notify</button>
+	<p>You have to click 3 times to see an alert</p>
 </div>
-
 
 
 <!-- scripts -->
 <script>
 
-var myApp = angular.module('myApp', [])
-
-myApp.controller('SpicyController', ['$scope', function($scope){
-	$scope.customSpice
-	$scope.spice = 'very'
-	$scope.spicy = function(spice){
-		$scope.spice = spice
+angular.module('myServiceModule', [])
+.controller('MyController', ['$scope', 'notify', function($scope, notify){
+	$scope.callNotify = function(msg){
+		notify(msg)
 	}
+}])
+.factory('notify', ['$window', function(win){
+	var msgs = [] 
+	return function(msg){
+		msgs.push(msg)
+			if (msgs.length === 3){
+				win.alert(msgs.join('\n'))
+				msgs = []
+			}
+		}
 }])
 
 </script>
