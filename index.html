@@ -15,27 +15,42 @@
 	<!-- <script src="bower_components/angular-animate/angular-animate.min.js"></script> -->
 	<!-- jquery -->
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="invoice1.js"></script>
+	<script src="invoice3.js"></script>
+	<script src="finance3.js"></script>
 </head>
 <body>
 
-<div ng-app="invoice1" ng-controller="InvoiceController as invoice">
-	<b>Invoice:</b>	
-	<div>
-		Quantity: <input type="number" min="0" ng-model="invoice.qty" required />
-	</div>
-	<div>
-		Cost: <input type="number" min="0" ng-model="invoice.cost" required/>	
-		<select ng-model="invoice.inCurr">
-			<option ng-repeat="c in invoice.currencies">{{c}}</option>
-		</select>
-	</div>
-	<div>
-		<b>Total:</b>	
-		<span ng-repeat="c in invoice.currencies">{{invoice.total(c) | currency:c }}</span> <br />
-		<button class="btn" ng-click="invoice.pay()">Pay</button>
+<div class="container">
+	<div ng-app="invoice1" ng-controller="InvoiceController as invoice">
+		<b>Invoice:</b>	
+		<div class="row">
+			Quantity: 
+			<div class="col-sm-2">
+				<input type="number" min="0" ng-model="invoice.qty" class="form-control" required />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2">
+				Cost: <input type="number" min="0" ng-model="invoice.cost" class="form-control" required/>	
+			</div>
+			<div class="row">
+				<div class="col-sm-2">
+					<select ng-model="invoice.inCurr">
+						<option ng-repeat="c in invoice.currencies">{{c}}</option>
+					</select>
+				</div>	
+			</div>
+		</div>
+		<div class="lead">
+			<b class="text-info">Total:</b>	
+			<ul class="list-inline bg-danger">
+			<li ng-repeat="c in invoice.currencies">{{invoice.total(c) | currency:c }} | </li>
+			</ul>
+			<button ng-click="invoice.pay()" class="btn btn-success">Pay</button>
+		</div>
 	</div>
 </div>
+
 
 
 <!-- scripts -->

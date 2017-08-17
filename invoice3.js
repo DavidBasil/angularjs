@@ -1,5 +1,5 @@
-angular.module('invoice1', [])
-	.controller('InvoiceController', function InvoiceController(){
+angular.module('invoice1', ['finance3'])
+	.controller('InvoiceController', ['currencyConverter', function InvoiceController(){
 		this.qty = 1
 		this.cost = 2
 		this.inCurr = 'EUR'
@@ -21,4 +21,4 @@ angular.module('invoice1', [])
 		this.pay = function pay(){
 			window.alert('Thanks!')
 		}
-	})
+	}])
