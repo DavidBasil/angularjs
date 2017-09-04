@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title></title>
-	<script src="bower_components/angular/angular.js"></script>
 </head>
-<body ng-init="salary=0;percentage=0">
+<body ng-controller="FinanceController">
 		
 <h4>Your salary?</h4>
 <input type="number" ng-model="salary"/>
@@ -15,7 +14,10 @@
 <input type="number" ng-model="percentage" /> %
 <br />
 <p>The amount of to be spent on gadgets will be:</p>
-<span>{{ salary * percentage * 0.01 }}</span>
+<span>{{result() | currency}}</span>
 
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
 </body>
 </html>
