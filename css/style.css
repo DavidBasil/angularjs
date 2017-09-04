@@ -1,0 +1,7 @@
+body {
+	color: red;
+}
+
+li > a {
+	font-style: 12px;
+}
